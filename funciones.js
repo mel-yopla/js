@@ -63,12 +63,34 @@ console.log(
 );
 
 /**
- * Escope
+ * Escope (Alcance)
  */
 
-// let name = "mel";
-// nombre = "Juan";
+let nombreGlobal = "Mel"; // Accesible desde cualquier lugar
 
+function mostrarScope() {
+  let nombreLocal = "Juan"; // Solo existe dentro de esta función
+  console.log(`Global: ${nombreGlobal}`);
+  console.log(`Local: ${nombreLocal}`);
+}
+
+mostrarScope();
+// console.log(nombreLocal); // Esto daría error porque nombreLocal no existe fuera de la función
 /**
- * Arrow function
+ * Arrow function (Funciones de flecha)
  */
+
+// Sintaxis estándar
+const sumarFlecha = (a, b) => {
+  return a + b;
+};
+
+// Retorno implícito (más corto, si solo hay una línea de código)
+const multiplicarFlecha = (a, b) => a * b;
+
+// Con un solo parámetro (se pueden omitir los paréntesis)
+const saludarFlecha = (nombre) => `Hola ${nombre} desde una Arrow Function`;
+
+console.log(sumarFlecha(10, 5));
+console.log(multiplicarFlecha(4, 2));
+console.log(saludarFlecha("Mel"));

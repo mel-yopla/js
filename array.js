@@ -55,6 +55,50 @@ console.log(dato5);
  */
 
 let numeros = [10, 20, 30, 55, 68, 66, 89, 12, 45, 68, 254];
+
+/**
+ * 1. Agregar/Quitar al INICIO (Mutan el array)
+ */
+friends.unshift("Maria"); // Agrega al inicio
+let primero = friends.shift(); // Quita el primero
+console.log("Después de shift:", friends);
+
+/**
+ * 2. Buscar un elemento específico
+ * find: devuelve el objeto/valor, no un array
+ */
+const busqueda = friends.find((name) => name === "Erick");
+console.log("Encontrado:", busqueda);
+
+/**
+ * 3. Comprobar existencia
+ * includes: devuelve true/false
+ */
+const tieneMel = friends.includes("mel");
+console.log("¿Está Mel?:", tieneMel);
+
+/**
+ * 4. Mejora de Filter (Sintaxis Pro)
+ * Usamos retorno implícito para que sea una sola línea
+ */
+const mayoresDe30 = numeros.filter((num) => num > 30);
+console.log("Mayores de 30:", mayoresDe30);
+
+/**
+ * 5. Reduce (Para cálculos)
+ * Sumar todos los números del array
+ */
+const totalSuma = numeros.reduce((acumulador, actual) => {
+  return acumulador + actual;
+}, 0); // El 0 es el valor inicial
+console.log("Suma total de números:", totalSuma);
+
+/**
+ * 6. Concatenar Arrays
+ */
+const otrosAmigos = ["Pedro", "Juan"];
+const todos = [...friends, ...otrosAmigos]; // Spread operator (forma moderna)
+console.log("Lista completa:", todos);
 let nuevoArray = [];
 numeros.map((num) => {
   if (num > 30) {

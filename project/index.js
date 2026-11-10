@@ -27,5 +27,7 @@ const orderProduct = (code) => {
   }
   order.push(foundProduct);
   console.log("Your product has been added to your order. Your order is: ");
-  return order;
+  return viewOrder();
 };
+
+const viewOrder = () => order;

@@ -44,3 +44,15 @@ const showTotal = () => {
   console.log(`The total cost of your order is: $${total}`);
   return total;
 };
+
+const finalizeOrder = () => {
+  const total = calculateTotal();
+  user.debt += total;
+
+  //Vaciamos el pedido para la próxima vez
+  order.length = 0;
+  console.log(
+    `Order finalized! ${user.name}, your total debt is now: $${total}`,
+  );
+  return user.debt;
+};

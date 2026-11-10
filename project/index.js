@@ -31,3 +31,16 @@ const orderProduct = (code) => {
 };
 
 const viewOrder = () => order;
+
+const calculateTotal = () => {
+  const total = order.reduce((accumulator, product) => {
+    return accumulator + product.price;
+  }, 0);
+  return total;
+};
+
+const showTotal = () => {
+  const total = calculateTotal();
+  console.log(`The total cost of your order is: $${total}`);
+  return total;
+};

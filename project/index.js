@@ -1,31 +1,31 @@
-console.log("Hola! desde el Restaurant");
+console.log("Hello from the Restaurant");
 
-const usuario = {
-  nombre: "Mel",
-  edad: 30,
-  deuda: 0,
+const user = {
+  name: "Mel",
+  age: 30,
+  debt: 0,
 };
 
-const pedido = [];
+const order = [];
 const showMenu = () => {
-  console.log(`CÓDIGO - NOMBRE PRODUCTO - COSTO`);
-  productos.forEach((producto) => {
-    console.log(`${producto.codigo} - ${producto.nombre} - $${producto.costo}`);
+  console.log(`CODE - PRODUCT - PRICE`);
+  products.forEach((product) => {
+    console.log(`${product.code} - ${product.name} - $${product.price}`);
   });
 };
 
-const pedirProducto = (cod) => {
-  if (!cod) {
-    return "Ingrese un codigo válido";
+const orderProduct = (code) => {
+  if (!code) {
+    return "Please enter a valid code";
   }
-  const productoEncontrado = productos.find((producto) => {
-    return producto.codigo === cod;
+  const foundProduct = products.find((product) => {
+    return product.code === code;
   });
 
-  if (!productoEncontrado) {
-    return "El productono no ha sido encontrado";
+  if (!foundProduct) {
+    return "Product not found";
   }
-  pedido.push(productoEncontrado);
-  console.log("Su producto ha sido agregado a su pedido. Su pedido es:");
-  return pedido;
+  order.push(foundProduct);
+  console.log("Your product has been added to your order. Your order is: ");
+  return order;
 };

@@ -7,6 +7,9 @@ const user = {
 };
 
 const order = [];
+
+let totalSales = 0;
+
 const showMenu = () => {
   console.log(`CODE - PRODUCT - PRICE`);
   products.forEach((product) => {
@@ -52,7 +55,27 @@ const finalizeOrder = () => {
   //Vaciamos el pedido para la próxima vez
   order.length = 0;
   console.log(
-    `Order finalized! ${user.name}, your total debt is now: $${total}`,
+    `Order finalized! ${user.name}, your total debt is now: $${user.debt}`,
   );
   return user.debt;
+};
+
+const payOrder = (countMoney) => {
+  if (countMoney < user.debt) {
+    console.log(
+      `Insufficient funds. You are still short $${user.debt - countMoney}`,
+    );
+    return false;
+  } else if (countMoney === user.debt) {
+    totalSales += user.debt;
+    user.debt = 0;
+    console.log("Order paid in full. Thank you!");
+    return true;
+  } else {
+    const change = countMoney - user.debt;
+    totalSales += user.debt;
+    user.debt = 0;
+    console.log(`Order paid! Your change is $${change}.`);
+    return true;
+  }
 };
